@@ -25,17 +25,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/poke_third"
         android:layout_width="96dp"
         android:layout_height="96dp"
         android:layout_marginTop="36dp"
         android:adjustViewBounds="true"
-        app:layout_constraintEnd_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintEnd_toStartOf="@+id/poke_second"
+        app:layout_constraintTop_toBottomOf="@+id/poke_first"
         app:srcCompat="@drawable/pokeball" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/poke_first"
         android:layout_width="96dp"
         android:layout_height="96dp"
         android:layout_marginStart="60dp"
@@ -46,7 +46,7 @@
         app:srcCompat="@drawable/pokeball" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/poke_second"
         android:layout_width="96dp"
         android:layout_height="96dp"
         android:layout_marginTop="324dp"

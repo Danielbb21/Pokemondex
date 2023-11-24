@@ -15,6 +15,15 @@
         android:theme="@style/Theme.Pokemondex"
         tools:targetApi="31">
         <activity
+            android:name=".activity.catch_pokemon"
+            android:exported="false" />
+        <activity
+            android:name=".activity.forest_pokemon"
+            android:exported="false" />
+        <activity
+            android:name=".activity.my_pokemons"
+            android:exported="false" />
+        <activity
             android:name=".activity.initials_pokemons"
             android:exported="false" />
         <activity
