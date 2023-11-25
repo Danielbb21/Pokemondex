@@ -27,6 +27,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
         android:text="nome do pokemon"
+        android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/pokeminho"

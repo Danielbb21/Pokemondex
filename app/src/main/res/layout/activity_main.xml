@@ -15,6 +15,7 @@
         android:layout_marginBottom="23dp"
         android:fontFamily="sans-serif-black"
         android:text="Welcome to the pokeCatch!"
+        android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/imageView6"
         app:layout_constraintEnd_toEndOf="parent"
