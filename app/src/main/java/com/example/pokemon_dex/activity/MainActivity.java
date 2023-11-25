@@ -28,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
         if(!loaded){
             btLoadGame.setVisibility(View.INVISIBLE);
         }
+        else{
+            btLoadGame.setVisibility(View.VISIBLE);
+        }
         BtNewGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

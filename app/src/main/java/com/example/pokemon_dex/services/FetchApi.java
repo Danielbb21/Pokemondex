@@ -62,4 +62,20 @@ public class FetchApi {
         return call;
     }
 
+    public static AtomicReference<Bitmap> getPokemonImageById(int pokemonId) {
+        AtomicReference<Bitmap> image = new AtomicReference<>();
+        Thread t = new Thread(() -> {
+            try {
+                InputStream in = new URL("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/"+ pokemonId +".png").openStream();
+                image.set(BitmapFactory.decodeStream(in));
+                System.out.println("imagem setada");
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+        t.start();
+        return image;
+    }
+
 }
