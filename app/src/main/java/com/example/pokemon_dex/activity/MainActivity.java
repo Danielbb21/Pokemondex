@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.pokemon_dex.R;
+import com.example.pokemon_dex.services.FetchApi;
 
 public class MainActivity extends AppCompatActivity {
     private Button BtNewGame;
