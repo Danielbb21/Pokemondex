@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.example.pokemon_dex.R;
 import com.example.pokemon_dex.models.Generation;
 import com.example.pokemon_dex.models.Pokemon;
@@ -81,7 +82,9 @@ public class initials_pokemons extends AppCompatActivity {
     private void loadImages(){
         int count = 0;
         for ( ImageView ivPokemon : poke) {
-            FetchApi.getPokemonImageById(pokemon[count].getId(), this, ivPokemon.getId());
+            Glide.with(getApplicationContext())
+                    .load(pokemon[count].getImage_url())
+                    .into(ivPokemon);
 
 
             int finalCount = count;

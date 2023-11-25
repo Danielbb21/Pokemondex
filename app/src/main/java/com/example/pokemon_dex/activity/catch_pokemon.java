@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.pokemon_dex.R;
 import com.example.pokemon_dex.models.Pokemon;
 import com.example.pokemon_dex.services.FetchApi;
@@ -55,8 +56,9 @@ public class catch_pokemon extends AppCompatActivity {
                 System.out.println(t);
             }
         });
-        FetchApi.getPokemonImageById( pokeId, this, R.id.CatchView);
-
+        Glide.with(getApplicationContext())
+                .load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/"+ pokeId +".png")
+                .into(catchView);
         btCatch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

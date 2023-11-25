@@ -42,7 +42,6 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.MyViewHo
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Pokemon pokemon = mypokemons.get(position);
         holder.pokenome.setText(pokemon.getName());
-        URI uri = URI.create(pokemon.getImage_url());
         Glide.with(myContext)
                 .load(pokemon.getImage_url())
                 .into(holder.pokeminho);

@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.putBoolean("loaded", true);
+                editor.commit();
                 Intent intent = new Intent(getApplicationContext(), initials_pokemons.class);
                 startActivity(intent);
                 finishAffinity();

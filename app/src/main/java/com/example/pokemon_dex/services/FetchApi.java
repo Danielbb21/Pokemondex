@@ -34,48 +34,10 @@ public class FetchApi {
         Call<Pokemon> call = pS.getPokemonByName(name);
         return call;
     }
-    public static Bitmap getPokemonImageById(int pokemonId, Activity activity, int imageViewId) {
-        AtomicReference<Bitmap> image = new AtomicReference<>();
-        Thread t = new Thread(() -> {
-            try {
-                InputStream in = new URL("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/"+ pokemonId +".png").openStream();
-                image.set(BitmapFactory.decodeStream(in));
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            activity.runOnUiThread(() -> {
-                if (image != null) {
-                    ImageView img = activity.findViewById(imageViewId);
-                    img.setImageBitmap(image.get());
-                }
-            });
-        });
-        t.start();
-        return image.get();
-    }
-
     public static Call<Generation> getPokemonByGeneration(int id){
 
         PokemonService pS = retrofit.create(PokemonService.class);
         Call<Generation> call = pS.getPokemonByGeneration(id);
         return call;
     }
-
-    public static AtomicReference<Bitmap> getPokemonImageById(int pokemonId) {
-        AtomicReference<Bitmap> image = new AtomicReference<>();
-        Thread t = new Thread(() -> {
-            try {
-                InputStream in = new URL("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/"+ pokemonId +".png").openStream();
-                image.set(BitmapFactory.decodeStream(in));
-                System.out.println("imagem setada");
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
-        t.start();
-        return image;
-    }
-
 }
