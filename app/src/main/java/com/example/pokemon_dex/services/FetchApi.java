@@ -29,29 +29,23 @@ public class FetchApi {
 
         PokemonService pS = retrofit.create(PokemonService.class);
         Call<Pokemon> call = pS.getPokemonByID(id);
-        final Pokemon[] pokemon = new Pokemon[1];
-
        return call;
     }
-    public static Bitmap getImageByURL(String url, Activity activity, int id) {
+    public static Bitmap getImageByURL(String url, Activity activity, int imageViewId) {
         AtomicReference<Bitmap> image = new AtomicReference<>();
         Thread t = new Thread(() -> {
             try {
-                System.out.println("to tentando pegar a imagem");
                 InputStream in = new URL(url).openStream();
                 image.set(BitmapFactory.decodeStream(in));
 
             } catch (Exception e) {
-                System.out.println("deu erro");
                 e.printStackTrace();
             }
             activity.runOnUiThread(() -> {
-                    System.out.println("tentando setar a imagem");
-            System.out.println(image);
-            if (image != null) {
-                ImageView img = activity.findViewById(id);
-                img.setImageBitmap(image.get());
-            }
+                if (image != null) {
+                    ImageView img = activity.findViewById(imageViewId);
+                    img.setImageBitmap(image.get());
+                }
             });
         });
         t.start();
