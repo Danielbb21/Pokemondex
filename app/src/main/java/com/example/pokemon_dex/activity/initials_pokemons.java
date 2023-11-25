@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.pokemon_dex.R;
+import com.example.pokemon_dex.services.FetchApi;
 
 public class initials_pokemons extends AppCompatActivity {
 
@@ -21,6 +22,7 @@ public class initials_pokemons extends AppCompatActivity {
         poke[2] = findViewById(R.id.poke_third);
 
         for ( ImageView pokemon: poke) {
+            FetchApi.getImageByURL("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png", this, pokemon.getId());
             pokemon.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
