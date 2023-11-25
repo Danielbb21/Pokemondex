@@ -3,7 +3,17 @@ package com.example.pokemon_dex.models;
 public class Pokemon {
 
     private int id;
+    private int table_id;
     private String name;
+
+    public int getTable_id() {
+        return table_id;
+    }
+
+    public void setTable_id(int table_id) {
+        this.table_id = table_id;
+    }
+
     private int capture_rate;
 
     public Pokemon() {

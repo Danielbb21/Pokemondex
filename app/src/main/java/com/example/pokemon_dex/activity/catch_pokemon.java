@@ -3,8 +3,6 @@ package com.example.pokemon_dex.activity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.res.Resources;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,7 +23,7 @@ import retrofit2.Response;
 public class catch_pokemon extends AppCompatActivity {
 
     private TextView txtPokemon;
-    private Button btCatch;
+    private Button btCatch, btRun;
     private Pokemon pokemon;
 
     private ImageView catchView;
@@ -36,6 +34,7 @@ public class catch_pokemon extends AppCompatActivity {
         txtPokemon = findViewById(R.id.txtPokemon);
         catchView = findViewById(R.id.CatchView);
         btCatch = findViewById(R.id.btCatch);
+        btRun = findViewById(R.id.btCorrer);
         btCatch.setVisibility(View.GONE);
         Random r = new Random();
         int pokeId = r.nextInt(1017) + 1;
@@ -56,7 +55,7 @@ public class catch_pokemon extends AppCompatActivity {
                 System.out.println(t);
             }
         });
-        FetchApi.getImageByURL( "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/"+ pokeId +".png", this, R.id.CatchView);
+        FetchApi.getPokemonImageById( pokeId, this, R.id.CatchView);
 
         btCatch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +68,7 @@ public class catch_pokemon extends AppCompatActivity {
                     intent.putExtra("capture_rate", pokemon.getCapture_rate());
                     intent.putExtra("image_url", pokemon.getImage_url());
                     startActivity(intent);
+                    finishAffinity();
                 }
                 else{
                     if(checkRunAway(pokemon.getCapture_rate())){
@@ -79,6 +79,14 @@ public class catch_pokemon extends AppCompatActivity {
                         Toast.makeText(catch_pokemon.this, "Tente novamente", Toast.LENGTH_SHORT).show();
                     }
                 }
+            }
+        });
+        btRun.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), forest_pokemon.class);
+                startActivity(intent);
+                finishAffinity();
             }
         });
     }
